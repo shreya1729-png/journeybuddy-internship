@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Module 1 — Next.js Frontend Architecture
 
-## Getting Started
+## Objective
 
-First, run the development server:
+Architect a client-server boundary layout for a multi-page dashboard by distinguishing Server Components from interactive Client Components.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Dashboard Pages
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application contains three pages:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* `/dashboard` — Main dashboard
+* `/analytics` — Analytics and filtering
+* `/settings` — User preferences
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Server Components
 
-## Learn More
+Server Components are used for UI that does not require browser-side state or event handling.
 
-To learn more about Next.js, take a look at the following resources:
+| Component          | Purpose                        |
+| ------------------ | ------------------------------ |
+| `RevenueCard`      | Displays revenue information   |
+| `UserStats`        | Displays user statistics       |
+| `ActivityTable`    | Displays recent activity       |
+| `AnalyticsSummary` | Displays analytics information |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Client Components
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Client Components are used where browser-side interaction and React state are required.
 
-## Deploy on Vercel
+| Component        | Purpose                                         |
+| ---------------- | ----------------------------------------------- |
+| `SearchBar`      | Allows users to enter search queries            |
+| `LiveStatus`     | Allows live status interaction                  |
+| `FilterControls` | Allows users to filter analytics data           |
+| `Preferences`    | Allows users to change notification preferences |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Architecture
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The application follows a clear client-server boundary:
+
+* Static and non-interactive dashboard content is implemented using Server Components.
+* Interactive elements are implemented using Client Components.
+* Client Components use React state and event handlers where required.
+* Pages compose both Server and Client Components.
+
+The detailed architecture diagram is available in [`ARCHITECTURE.md`](./ARCHITECTURE.md).
+
+## Technologies
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* App Router
+
+## Task Completion
+
+The module demonstrates:
+
+* Multi-page dashboard architecture
+* Server and Client Component separation
+* Interactive search functionality
+* Interactive filtering controls
+* Interactive live status card
+* Interactive user preferences
+* Conceptual client-server boundary documentation
+
+## Reference
+
+Next.js documentation: https://nextjs.org/docs
