@@ -1,0 +1,19 @@
+{
+  "name": "05-mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+      "scripts": {
+    "test": "echo no test specified && exit 1",
+    "start": "node --tls-max-v1.2 db.js",
+    "seed": "node --tls-max-v1.2 seed.js",
+    "search": "node --tls-max-v1.2 search.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "mongodb": "^7.6.0"
+  }
+}
