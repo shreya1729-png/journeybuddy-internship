@@ -1,0 +1,19 @@
+{
+  "name": "06-pinecone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo no test specified && exit 1",
+    "create-index": "node createIndex.js",
+    "upsert": "node upsert.js",
+    "query": "node query.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@pinecone-database/pinecone": "^8.2.0",
+    "dotenv": "^17.4.2"
+  }
+}
