@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JourneyBuddy | Travel Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <div class="brand">✈ <span>JourneyBuddy</span></div>
+      <p class="muted">Travel smarter, pack lighter.</p>
+
+      <nav>
+        <a class="active" href="#chat">💬 Assistant</a>
+        <a href="#budget">💰 Budget planner</a>
+        <a href="#checklist">🎒 Checklist</a>
+      </nav>
+
+      <div class="side-note">
+        Google ADK demo workspace<br>
+        <span id="mode">Checking mode…</span>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">YOUR TRAVEL COPILOT</p>
+          <h1>Plan your next escape.</h1>
+          <p class="muted">
+            Ask questions, estimate costs, and prepare your packing list.
+          </p>
+        </div>
+        <div class="badge">● Local workspace</div>
+      </header>
+
+      <section id="chat" class="card">
+        <div class="section-title">
+          <h2>Assistant chat</h2>
+          <span class="tag">Tool-aware</span>
+        </div>
+
+        <div id="messages" class="messages">
+          <div class="bubble assistant">
+            Hey! I’m JourneyBuddy. Ask me for a budget estimate or a travel checklist.
+          </div>
+        </div>
+
+        <form id="chatForm" class="row">
+          <input
+            id="message"
+            placeholder="e.g. Plan a budget trip to Goa for 3 days"
+            autocomplete="off"
+          >
+          <button type="submit">Send ↗</button>
+        </form>
+
+        <div class="quick">
+          <button type="button" data-q="Calculate a budget for 2 travelers visiting Mysuru for 2 days.">
+            Mysuru budget
+          </button>
+          <button type="button" data-q="Give me a checklist for a beach trip to Goa.">
+            Beach checklist
+          </button>
+          <button type="button" data-q="What should I pack for a trekking trip?">
+            Trekking packing
+          </button>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section id="budget" class="card">
+          <div class="section-title">
+            <h2>Budget planner</h2>
+            <span class="tag">Estimate</span>
+          </div>
+
+          <form id="budgetForm" class="form">
+            <input name="destination" placeholder="Destination" required>
+
+            <div class="two">
+              <input name="days" type="number" min="1" value="2" required>
+              <input name="travelers" type="number" min="1" value="2" required>
+            </div>
+
+            <div class="two">
+              <input name="food" type="number" min="1" value="500" required>
+              <input name="transport" type="number" min="1" value="200" required>
+            </div>
+
+            <div class="two">
+              <input name="stay" type="number" min="1" value="1500" required>
+              <input name="travel" type="number" min="1" value="3000" required>
+            </div>
+
+            <button type="submit">Calculate budget</button>
+          </form>
+
+          <pre id="budgetResult" class="result">Your estimate will appear here.</pre>
+        </section>
+
+        <section id="checklist" class="card">
+          <div class="section-title">
+            <h2>Trip checklist</h2>
+            <span class="tag">Packing</span>
+          </div>
+
+          <form id="checkForm" class="form">
+            <input name="destination" placeholder="Destination" required>
+
+            <div class="two">
+              <input name="days" type="number" min="1" value="3" required>
+
+              <select name="type">
+                <option value="general">General</option>
+                <option value="beach">Beach</option>
+                <option value="trekking">Trekking</option>
+                <option value="city">City</option>
+              </select>
+            </div>
+
+            <button type="submit">Generate checklist</button>
+          </form>
+
+          <ul id="checkResult" class="checklist">
+            <li>Your checklist will appear here.</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
